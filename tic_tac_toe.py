@@ -1,3 +1,7 @@
+"""
+A module for playing simple terminal interface Tic Tac Toe.
+"""
+
 def print_board(board: list) -> None:
     """
     Prints the Tic Tac Toe board.
@@ -59,6 +63,47 @@ def is_board_full(board: list) -> bool:
     return all(cell != " " for row in board for cell in row)
 
 
+def tic_tac_toe() -> None:
+    """
+    Main function to play Tic Tac Toe.
+
+    Parameters:
+        None
+    Return:
+        None
+    """
+    print("Welcome to Tic Tac Toe!")
+    print("You are 'X' and the AI is 'O'.")
+
+    board = create_board()
+    while True:
+        print_board(board)
+
+        # Player turn
+        while True:
+            try:
+                move = int(input("Enter your move (1-9): ")) - 1
+                row, col = divmod(move, 3)
+                if board[row][col] == " ":
+                    board[row][col] = "X"
+                    break
+                else:
+                    print("Invalid move, try again.")
+            except (ValueError, IndexError):
+                print("Invalid input, please enter a number between 1 and 9.")
+        
+        if check_winner(board) == "X":
+            print_board(board)
+            print("Congratualions! You win!")
+            return
+
+        if is_board_full(board):
+            print_board(board)
+            print("It's a draw!")
+            return
+
+        # AI's turn
+
+
 if __name__ == "__main__":
-    board = [[" " for _ in range(3)] for _ in range(3)]
-    print_board(board)
+    tic_tac_toe()
