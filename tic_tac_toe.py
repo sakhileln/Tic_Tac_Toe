@@ -13,6 +13,18 @@ def print_board(board: list) -> None:
         print("-" * 9)
 
 
+def create_board() -> list:
+    """
+    Generates empty board.
+
+    Parameters:
+        None
+    Return:
+        board (list): Empty board
+    """
+    return [[" " for _ in range(3)] for _ in range(3)]
+
+
 def check_winner(board: list) -> str:
     """
     Checks if there is a winner.
@@ -33,6 +45,18 @@ def check_winner(board: list) -> str:
     if board[0][2] == board[1][1] == board[2][0] != " ":
         return board[0][2]
     return None
+
+
+def is_board_full(board: list) -> bool:
+    """
+    Checks if the board is full
+
+    Parameters:
+        board (int): Game board with positions
+    Return:
+        Boolen (bool): True if board full, False otherwise
+    """
+    return all(cell != " " for row in board for cell in row)
 
 
 if __name__ == "__main__":
