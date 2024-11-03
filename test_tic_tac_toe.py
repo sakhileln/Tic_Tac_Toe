@@ -30,7 +30,7 @@ class TestTicTacToe(unittest.TestCase):
         Test case for full board.
         """
         board = [
-            ["X", "O", "O "],
+            ["X", "O", "O"],
             ["O", "O", "O"],
             ["X", " X", "X"]
         ]
@@ -41,7 +41,7 @@ class TestTicTacToe(unittest.TestCase):
         Test partially full board.
         """
         board = [
-            [" ", " ", "O "],
+            [" ", " ", "O"],
             ["O", "O", " "],
             ["X", "  ", "X"]
         ]
@@ -52,11 +52,22 @@ class TestTicTacToe(unittest.TestCase):
         Test case for X as winner
         """
         board = [
-            [" ", " ", "O "],
+            [" ", " ", "O"],
             ["O", "O", " "],
             ["X", "X", "X"]
         ]
         self.assertEqual(check_winner(board), "X")
+
+    def test_O_winner(self):
+        """
+        Test case for O as winner
+        """
+        board = [
+            [" ", " ", "O"],
+            ["O", "O", " "],
+            ["O", "X", "X"]
+        ]
+        self.assertEqual(check_winner(board), "O")
 
 if __name__ == "__main__":
     unittest.main()
