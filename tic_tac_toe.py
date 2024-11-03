@@ -73,7 +73,21 @@ def tic_tac_toe() -> None:
         None
     """
     print("Welcome to Tic Tac Toe!")
-    print("You are 'X' and the AI is 'O'.")
+    print("1. Player 1 vs Player 2")
+    print("2. Plater vs AI")
+    while True:
+        try:
+            choice = int(input("Please enter your choice (1, 2 or 3): "))
+            if choice in [1,2,3]:
+                break
+        except Exception as e:
+            print("Invalid input, please enter number between 1, 2 or 3.")
+    if choice == 3:
+        exit()
+    elif choice == 2:
+        print("You are 'X' and the AI is 'O'.")
+    elif choice == 1:
+        print("Player 1 is 'X' and Player 2 is 'O'")
 
     board = create_board()
     while True:
