@@ -4,7 +4,8 @@ A module for test cases of the tic tac toe game.
 
 from tic_tac_toe import (
     create_board,
-    is_board_full
+    is_board_full,
+    check_winner,
 )
 import unittest
 
@@ -46,6 +47,16 @@ class TestTicTacToe(unittest.TestCase):
         ]
         self.assertEqual(is_board_full(board), False)
 
+    def test_X_winner(self):
+        """
+        Test case for X as winner
+        """
+        board = [
+            [" ", " ", "O "],
+            ["O", "O", " "],
+            ["X", "X", "X"]
+        ]
+        self.assertEqual(check_winner(board), "X")
 
 if __name__ == "__main__":
     unittest.main()
