@@ -35,6 +35,17 @@ class TestTicTacToe(unittest.TestCase):
         ]
         self.assertEqual(is_board_full(board), True)
 
+    def test_partially_full(self):
+        """
+        Test partially full board.
+        """
+        board = [
+            [" ", " ", "O "],
+            ["O", "O", " "],
+            ["X", "  ", "X"]
+        ]
+        self.assertEqual(is_board_full(board), False)
+
 
 if __name__ == "__main__":
     unittest.main()
