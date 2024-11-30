@@ -2,6 +2,7 @@
 A module for playing simple terminal interface Tic Tac Toe.
 """
 
+
 def print_board(board: list) -> None:
     """
     Prints the Tic Tac Toe board.
@@ -78,7 +79,7 @@ def tic_tac_toe() -> None:
     while True:
         try:
             choice = int(input("Please enter your choice (1, 2 or 3): "))
-            if choice in [1,2,3]:
+            if choice in [1, 2, 3]:
                 break
         except Exception as e:
             print("Invalid input, please enter number between 1, 2 or 3.")
@@ -105,7 +106,7 @@ def tic_tac_toe() -> None:
                     print("Invalid move, try again.")
             except (ValueError, IndexError):
                 print("Invalid input, please enter a number between 1 and 9.")
-        
+
         if check_winner(board) == "X":
             print_board(board)
             print("Congratualions! You win!")
