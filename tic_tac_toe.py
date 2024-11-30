@@ -94,16 +94,16 @@ def minimax(board: list, depth: int, is_maximizing: bool) -> int:
                     board[row][col] = " "
                     best_score = max(score, best_score)
         return best_score
-    else:
-        best_score = float("inf")
-        for row in range(3):
-            for col in range(3):
-                if board[row][col] == " ":
-                    board[row][col] = "X"  # Player's move
-                    score = minimax(board, depth + 1, True)
-                    board[row][col] = " "
-                    best_score = min(score, best_score)
-        return best_score
+
+    best_score = float("inf")
+    for row in range(3):
+        for col in range(3):
+            if board[row][col] == " ":
+                board[row][col] = "X"  # Player's move
+                score = minimax(board, depth + 1, True)
+                board[row][col] = " "
+                best_score = min(score, best_score)
+    return best_score
 
 
 def ai_move(board: list) -> None:
