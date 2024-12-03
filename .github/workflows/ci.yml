@@ -67,6 +67,7 @@ jobs:
       - name: Run Tests with Coverage
         run: |
           coverage run test_tic_tac_toe.py
+          coverage report
       - name: Upload Coverage to Codecov (Optional, if you use Codecov)
         uses: codecov/codecov-action@v2
         with:
